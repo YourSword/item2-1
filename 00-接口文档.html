@@ -1,0 +1,1057 @@
+<html>
+  <head>
+	  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>ztree_toc:00-接口文档</title>
+		<link href="toc/style/github-bf51422f4bb36427d391e4b75a1daa083c2d840e.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/style/github2-d731afd4f624c99a4b19ad69f3083cd6d02b81d5.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/css/zTreeStyle/zTreeStyle.css" media="all" rel="stylesheet" type="text/css"/>
+	  <style>
+		pre {
+		    counter-reset: line-numbering;
+		    border: solid 1px #d9d9d9;
+		    border-radius: 0;
+		    background: #fff;
+		    padding: 0;
+		    line-height: 23px;
+		    margin-bottom: 30px;
+		    white-space: pre;
+		    overflow-x: auto;
+		    word-break: inherit;
+		    word-wrap: inherit;
+		}
+
+		pre a::before {
+		  content: counter(line-numbering);
+		  counter-increment: line-numbering;
+		  padding-right: 1em; /* space after numbers */
+		  width: 25px;
+		  text-align: right;
+		  opacity: 0.7;
+		  display: inline-block;
+		  color: #aaa;
+		  background: #eee;
+		  margin-right: 16px;
+		  padding: 2px 10px;
+		  font-size: 13px;
+		  -webkit-touch-callout: none;
+		  -webkit-user-select: none;
+		  -khtml-user-select: none;
+		  -moz-user-select: none;
+		  -ms-user-select: none;
+		  user-select: none;
+		}
+
+		pre a:first-of-type::before {
+		  padding-top: 10px;
+		}
+
+		pre a:last-of-type::before {
+		  padding-bottom: 10px;
+		}
+
+		pre a:only-of-type::before {
+		  padding: 10px;
+		}
+
+		.highlight { background-color: #ffffcc } /* RIGHT */
+		</style>
+  </head>
+  <body>
+	  <div>
+				<div style='width:25%;'>
+						<ul id="tree" class="ztree" style='width:100%'>
+
+						</ul>
+				</div>
+        <div id='readme' style='width:70%;margin-left:20%;'>
+          	<article class='markdown-body'>
+            	<h1 id="-">博客接口文档</h1>
+<h2 id="-">测试地址</h2>
+<ul>
+<li><p>前台地址</p>
+<p>  <a href="http://192.168.50.130:8001/">http://192.168.50.130:8001/</a></p>
+</li>
+<li><p>后台地址</p>
+<p>  <a href="http://192.168.50.130:8001/account/login">http://192.168.50.130:8001/account/login</a></p>
+</li>
+</ul>
+<h2 id="-">前台接口</h2>
+<h3 id="-">首页数据接口(获取帖子)</h3>
+<ul>
+<li><p>接口地址</p>
+<p>  <a href="http://192.168.50.130:8001/posts/getpage">http://192.168.50.130:8001/posts/getpage</a></p>
+</li>
+<li><p>请求方式</p>
+<p>  get</p>
+</li>
+<li><p>参数说明</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pageindex</td>
+<td>是</td>
+<td>页码</td>
+</tr>
+<tr>
+<td>pagesize</td>
+<td>是</td>
+<td>页容量</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>返回说明</p>
+<p>  包含json对象的数组</p>
+</li>
+<li><p>示例</p>
+</li>
+</ul>
+<h3 id="-">获取总共有多少页帖子</h3>
+<ul>
+<li><p>接口地址</p>
+<p>  <a href="http://192.168.50.130:8001/posts/count">http://192.168.50.130:8001/posts/count</a></p>
+</li>
+<li><p>请求方式</p>
+<p>  get</p>
+</li>
+<li><p>参数说明</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pagesize</td>
+<td>是</td>
+<td>页容量</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>返回说明</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pagecount</td>
+<td>总页数</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>示例</li>
+</ul>
+<pre><code class="lang-javascript">{&quot;pagecount&quot;:10}
+</code></pre>
+<h3 id="-">详细内容接口</h3>
+<ul>
+<li><p>接口地址</p>
+<p>  <a href="http://192.168.50.130:8001/posts/:id">http://192.168.50.130:8001/posts/:id</a></p>
+</li>
+<li><p>请求方式</p>
+<p>  get</p>
+</li>
+<li><p>参数说明</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>是</td>
+<td>帖子的id</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>返回说明</p>
+<p>  返回帖子对象</p>
+</li>
+<li><p>示例</p>
+</li>
+</ul>
+<h3 id="-">获取帖子的评论列表</h3>
+<ul>
+<li><p>接口地址</p>
+<p>  <a href="http://192.168.50.130:8001/comments/:postid">http://192.168.50.130:8001/comments/:postid</a></p>
+</li>
+<li><p>请求方式</p>
+<p>  get</p>
+</li>
+<li><p>参数说明</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>postid</td>
+<td>是</td>
+<td>帖子的id</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>返回说明</p>
+<p>  返回评论对象的数组</p>
+</li>
+<li><p>示例</p>
+</li>
+</ul>
+<h3 id="-">支持接口</h3>
+<ul>
+<li><p>接口地址</p>
+<p>  <a href="http://192.168.50.130:8001/support/:id">http://192.168.50.130:8001/support/:id</a></p>
+</li>
+<li><p>请求方式</p>
+<p>  get</p>
+</li>
+<li><p>参数说明</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>是</td>
+<td>评论的id</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>返回说明</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td>执行结果代码，1 有评论数据，2没有评论数据</td>
+</tr>
+<tr>
+<td>data</td>
+<td>如果没有评论，返回字符串，如果有评论返回数组</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>示例</li>
+</ul>
+<pre><code class="lang-javascript">{code: 0, data: &quot;没有要支持的评论&quot;}
+</code></pre>
+<h3 id="-">反对接口</h3>
+<ul>
+<li><p>接口地址</p>
+<p>   <a href="http://192.168.50.130:8001/oppose/:id">http://192.168.50.130:8001/oppose/:id</a></p>
+</li>
+<li><p>请求方式</p>
+<p>  get</p>
+</li>
+<li><p>参数说明</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>是</td>
+<td>评论的id</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>返回说明</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td>执行结果代码，1 有评论数据，2没有评论数据</td>
+</tr>
+<tr>
+<td>data</td>
+<td>如果没有评论，返回字符串，如果有评论返回数组</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>示例</li>
+</ul>
+<pre><code class="lang-javascript">{code: 0, data: &quot;没有要支持的评论&quot;}
+</code></pre>
+<h3 id="-">发表评论接口</h3>
+<ul>
+<li><p>接口地址</p>
+<p>  <a href="http://192.168.50.130:8001/comments/create">http://192.168.50.130:8001/comments/create</a></p>
+</li>
+<li><p>请求方式</p>
+<p>  post</p>
+</li>
+<li><p>参数说明</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>author</td>
+<td>是</td>
+<td>回复的用户</td>
+</tr>
+<tr>
+<td>author_email</td>
+<td>否</td>
+<td>回复用户的邮箱</td>
+</tr>
+<tr>
+<td>content</td>
+<td>是</td>
+<td>回复内容</td>
+</tr>
+<tr>
+<td>post_id</td>
+<td>是</td>
+<td>回复的帖子的id</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>返回说明</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td>执行结果代码，1成功，0失败</td>
+</tr>
+<tr>
+<td>comment</td>
+<td>评论的内容</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>示例</li>
+</ul>
+<pre><code class="lang-javascript">{code:1, comment: {}}
+</code></pre>
+<h3 id="-">登录接口</h3>
+<ul>
+<li><p>接口地址</p>
+<p>  <a href="http://192.168.50.130:8001/login">http://192.168.50.130:8001/login</a></p>
+</li>
+<li><p>请求方式</p>
+<p>  post</p>
+</li>
+<li><p>参数说明</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>username</td>
+<td>是</td>
+<td>用户名</td>
+</tr>
+<tr>
+<td>password</td>
+<td>是</td>
+<td>密码</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>返回说明</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td>执行结果代码，1注册成功，0注册失败</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>结果提示信息</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>示例</li>
+</ul>
+<pre><code class="lang-javascript">{
+    code: 0,
+    msg: &#39;注册失败&#39;
+}
+</code></pre>
+<h2 id="-">后台接口</h2>
+<h3 id="-">获取所有帖子(有分页)</h3>
+<ul>
+<li><p>接口地址</p>
+<p>  <a href="http://192.168.50.130:8001/admin/posts">http://192.168.50.130:8001/admin/posts</a></p>
+</li>
+<li><p>请求方式</p>
+<p>  get</p>
+</li>
+<li><p>参数说明</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pageindex</td>
+<td>是</td>
+<td>第几页</td>
+</tr>
+<tr>
+<td>pagesize</td>
+<td>是</td>
+<td>页容量</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>返回说明</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nickname</td>
+<td>发帖人的昵称</td>
+</tr>
+<tr>
+<td>title</td>
+<td>帖子标题</td>
+</tr>
+<tr>
+<td>id</td>
+<td>帖子id</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>示例</li>
+</ul>
+<h3 id="-">搜索帖子</h3>
+<ul>
+<li><p>接口地址</p>
+<p>  <a href="http://192.168.50.130:8001/admin/posts/search">http://192.168.50.130:8001/admin/posts/search</a></p>
+</li>
+<li><p>请求方式</p>
+<p>  get</p>
+</li>
+<li><p>参数说明</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>wd</td>
+<td>是</td>
+<td>搜索的内容</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>返回说明</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td>返回码，1查到数据，0没有数据</td>
+</tr>
+<tr>
+<td>data</td>
+<td>帖子对应的json对象</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>示例</li>
+</ul>
+<pre><code class="lang-javascript">{&quot;code&quot;:0,&quot;data&quot;:null}
+</code></pre>
+<h3 id="-id-">根据id获取帖子</h3>
+<ul>
+<li><p>接口地址</p>
+<p>  <a href="http://192.168.50.130:8001/admin/posts/:id">http://192.168.50.130:8001/admin/posts/:id</a></p>
+</li>
+<li><p>请求方式</p>
+<p>  get</p>
+</li>
+<li><p>参数说明</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>是</td>
+<td>要查询的帖子的id</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>返回说明</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td>返回码,1查询到数据，0未查到数据</td>
+</tr>
+<tr>
+<td>data</td>
+<td>帖子对应的json对象</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>示例</li>
+</ul>
+<pre><code class="lang-javascript">{&quot;code&quot;:0,&quot;data&quot;:null}
+</code></pre>
+<h3 id="-">删除帖子</h3>
+<ul>
+<li><p>接口地址</p>
+<p>  <a href="http://192.168.50.130:8001/admin/posts/delete/:id">http://192.168.50.130:8001/admin/posts/delete/:id</a></p>
+</li>
+<li><p>请求方式</p>
+<p>  get</p>
+</li>
+<li><p>参数说明</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>是</td>
+<td>要删除的帖子的id</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>返回说明</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td>返回码,1删除成功，0删除失败</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>操作的消息</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>示例</li>
+</ul>
+<pre><code class="lang-javascript">{&quot;code&quot;:0,&quot;msg&quot;:&quot;数据未找到&quot;}
+</code></pre>
+<h3 id="-">添加帖子</h3>
+<ul>
+<li><p>接口地址</p>
+<p><a href="http://192.168.50.130:8001/admin/posts/create">http://192.168.50.130:8001/admin/posts/create</a></p>
+</li>
+<li><p>请求方式</p>
+<p>  post</p>
+</li>
+<li><p>参数说明</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td>是</td>
+<td>帖子的id</td>
+</tr>
+<tr>
+<td>content</td>
+<td>是</td>
+<td>帖子的内容</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>返回说明</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td>返回码,1添加成功 2添加失败</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>操作的消息</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>示例</li>
+</ul>
+<pre><code class="lang-javascript">{&quot;code&quot;:1,&quot;msg&quot;:&quot;添加成功&quot;}
+</code></pre>
+<h3 id="-">修改帖子</h3>
+<ul>
+<li>接口地址
+  <a href="http://192.168.50.130:8001/admin/posts/update">http://192.168.50.130:8001/admin/posts/update</a></li>
+<li><p>请求方式</p>
+<p>  post</p>
+</li>
+<li><p>参数说明</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td>是</td>
+<td>帖子的id</td>
+</tr>
+<tr>
+<td>content</td>
+<td>是</td>
+<td>帖子的内容</td>
+</tr>
+<tr>
+<td>id</td>
+<td>是</td>
+<td>修改帖子的id</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>返回说明</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td>返回码,1修改成功 0修改失败</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>操作的消息</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>示例</li>
+</ul>
+<pre><code class="lang-javascript">{&quot;code&quot;:1,&quot;msg&quot;:&quot;修改成功&quot;}
+</code></pre>
+<h3 id="-">获取所有用户</h3>
+<ul>
+<li><p>接口地址</p>
+<p>  <a href="http://192.168.50.130:8001/admin/users">http://192.168.50.130:8001/admin/users</a></p>
+</li>
+<li><p>请求方式</p>
+<p>  get</p>
+</li>
+<li><p>参数说明</p>
+<p>  无</p>
+</li>
+<li><p>返回说明</p>
+<p>  返回用户数组</p>
+</li>
+<li><p>示例</p>
+</li>
+</ul>
+<h3 id="-id-">根据id查询用户</h3>
+<ul>
+<li><p>接口地址</p>
+<p>  <a href="http://192.168.50.130:8001/admin/users/:id">http://192.168.50.130:8001/admin/users/:id</a></p>
+</li>
+<li><p>请求方式</p>
+<p>  get</p>
+</li>
+<li><p>参数说明</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>是</td>
+<td>用户的id</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>返回说明</li>
+</ul>
+<p>返回用户对象</p>
+<ul>
+<li>示例</li>
+</ul>
+<h3 id="-">删除用户</h3>
+<ul>
+<li><p>接口地址</p>
+<p>   <a href="http://192.168.50.130:8001/admin/users/delete/:id">http://192.168.50.130:8001/admin/users/delete/:id</a></p>
+</li>
+<li><p>请求方式</p>
+<p>  get</p>
+</li>
+<li><p>参数说明</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>是</td>
+<td>用户的id</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>返回说明</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td>返回码,1成功 0失败</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>操作的消息</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>示例</li>
+</ul>
+<pre><code class="lang-javascript">{code: 0, msg:&quot;删除失败&quot;}
+</code></pre>
+<h3 id="-">添加用户</h3>
+<ul>
+<li><p>接口地址</p>
+<p>  <a href="http://192.168.50.130:8001/admin/users/create">http://192.168.50.130:8001/admin/users/create</a></p>
+</li>
+<li><p>请求方式
+  post</p>
+</li>
+<li><p>参数说明</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nickname</td>
+<td>否</td>
+<td>用户昵称</td>
+</tr>
+<tr>
+<td>username</td>
+<td>否</td>
+<td>用户名</td>
+</tr>
+<tr>
+<td>password</td>
+<td>否</td>
+<td>密码</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>返回说明</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td>返回码,1成功 0失败</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>操作的消息</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>示例</li>
+</ul>
+<h3 id="-">修改用户</h3>
+<ul>
+<li><p>接口地址</p>
+<p>  <a href="http://192.168.50.130:8001/admin/users/update/:id">http://192.168.50.130:8001/admin/users/update/:id</a></p>
+</li>
+<li><p>请求方式</p>
+<p>  post</p>
+</li>
+<li><p>参数说明</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nickname</td>
+<td>否</td>
+<td>用户昵称</td>
+</tr>
+<tr>
+<td>username</td>
+<td>否</td>
+<td>用户名</td>
+</tr>
+<tr>
+<td>password</td>
+<td>否</td>
+<td>密码</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>返回说明</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td>返回码,1成功 0失败</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>操作的消息</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>示例</li>
+</ul>
+
+          	</article>
+        </div>
+		</div>
+  </body>
+</html>
+<script type="text/javascript" src="toc/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="toc/js/jquery.ztree.all-3.5.min.js"></script>
+<script type="text/javascript" src="toc/js/ztree_toc.js"></script>
+<script type="text/javascript" src="toc_conf.js"></script>
+
+<SCRIPT type="text/javascript" >
+<!--
+$(document).ready(function(){
+    var css_conf = eval(markdown_panel_style);
+    $('#readme').css(css_conf)
+    
+    var conf = eval(jquery_ztree_toc_opts);
+		$('#tree').ztree_toc(conf);
+});
+//-->
+</SCRIPT>
